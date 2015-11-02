@@ -1,6 +1,6 @@
 # Checker
 
-Парсинг файла с FTP 
+Парсинг лога пользователей с FTP и сохранение статистики
 
 ## Установка
 
@@ -10,6 +10,8 @@
     $ virtualenv --prompt='(checker) ' .env
     $ source .env/bin/activate
     $ pip install -r requirements.txt
+    
+Изменить FTP_URI в config.py на актуальный
 
 ## Запуск
 
