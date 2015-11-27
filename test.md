@@ -4,7 +4,7 @@
 
 ### Поиск по всей истории
 
-**`GET /<value:str>/  `**
+**`GET /<value:str>/`**  
 **`GET /<value:str>/?offset=<offset:int>&limit=<limit:int>`**
 
     <value:str> - значение объекта
@@ -53,8 +53,8 @@ Response:
 
 ### Получение истории объекта по значению
 
-**`GET /get/<type:str>/<value:str>/  `**
-**`GET /get/<type:str>/<value:str>/<datefrom:datetime>/  `**
+**`GET /get/<type:str>/<value:str>/`**  
+**`GET /get/<type:str>/<value:str>/<datefrom:datetime>/`**  
 **`GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>`**
 
     <type:str> - тип объекта
