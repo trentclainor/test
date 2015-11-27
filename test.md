@@ -9,7 +9,7 @@
 
 Request:
 
-    <value:str> - значение объекта
+    <name:str> - значение объекта
     <offset:int> - с какой записи вернуть значения
     <limit:int> - максимальное  кол-во возвращаемых записей
 
@@ -22,7 +22,7 @@ Response:
         {
             "id": <id:int>, // id объекта
             "type": "<type:str>", // тип объекта
-            "name": "<value:str>", // название объекта
+            "name": "<name:str>", // название объекта
             "data": [ //
                 {"<key:str>": "<value:str>"},
                 {"<key:str>": "<value:str>"},
@@ -40,7 +40,7 @@ Response:
         {
             "id": <id:int>,
             "type": "<type:str>",
-            "value": "<value:str>",
+            "name": "<name:str>",
             "data": [
                 {"<key:str>": "<value:str>"},
                 {"<key:str>": "<value:str>"},
@@ -187,11 +187,14 @@ Request:
 [
     {
         "type": "<type:str>",
-        "value": "<value:str>"
+        "name": "<name:str>",
+        "interval": <interval:int>
+        "date_to": <date_to:datetime>
     },
     {
         "type": "<type:str>",
-        "value": "<value:str>"
+        "name": "<name:str>"
+        "interval": <interval:int>
     },
     ...
 ]
@@ -200,31 +203,32 @@ Request:
 
     <type:str> - тип объекта
     <name:str> - название объекта
+    <interval:int> - периодиочность мониторинга в секундах
+    <date_to:int> - дата окончания мониторинга
 
 Response:
 
 ```js
 [
-    {
-        "status": <status:int>,
-    },
-    {
-        "status": <status:int>,
-    },
+    {"status": <status:int> }, // статус 0 или 1
+    {"status": <status:int>},
     ...
 ]
 ```
 
-**`POST /monitoring/add/<type:str>/<name:str>/`**
+**`POST /monitoring/add/<type:str>/<name:str>/<interval:int>/`**
+**`POST /monitoring/add/<type:str>/<name:str>/<interval:int>/<date_to:int>/`**
 
     <type:str> - тип объекта
     <name:str> - название объекта
+    <interval:int> - периодиочность мониторинга в секундах
+    <date_to:datetime> - дата окончания мониторинга, default: 0
 
 Response:
 
 ```js
 {
-    "status": <status:int>,
+    "status": <status:int>
 }
 ```
 
@@ -255,12 +259,8 @@ Response:
 
 ```js
 [
-    {
-        "status": <status:int>,
-    },
-    {
-        "status": <status:int>,
-    },
+    {"status": <status:int> }, // статус 0 или 1
+    {"status": <status:int>},
     ...
 ]
 ```
@@ -274,12 +274,8 @@ Response:
 
 ```js
 [
-    {
-        "status": <status:int>,
-    },
-    {
-        "status": <status:int>,
-    },
+    {"status": <status:int> }, // статус 0 или 1
+    {"status": <status:int>},
     ...
 ]
 ```
@@ -294,11 +290,14 @@ Request:
 [
     {
         "type": "<type:str>", // тип объекта
-        "name": "<name:str>" // название объекта
+        "name": "<name:str>", // название объекта
+        "interval": <interval:int>, // периодиочность мониторинга в секундах
+        "date_to": "<date_to:datetime>" // дата окончания мониторинга, default: 0
     },
     {
         "type": "<type:str>",
-        "name": "<name:str>"
+        "name": "<name:str>",
+        "interval": <interval:int>
     },
     ...
 ]
@@ -311,12 +310,8 @@ Response:
 
 ```js
 [
-    {
-        "status": <status:int>,
-    },
-    {
-        "status": <status:int>,
-    },
+    {"status": <status:int> }, // статус 0 или 1
+    {"status": <status:int>},
     ...
 ]
 ```
@@ -328,6 +323,6 @@ Response:
 
 ```js
 {
-    "status": <status:int>,
+    "status": <status:int>  // статус 0 или 1
 }
 ```
