@@ -302,8 +302,11 @@ Request:
     },
     ...
 ]
-
 ```
+
+    <type:str> - тип объекта
+    <name:str> - название объекта
+
 Response:
 
 ```js
