@@ -4,8 +4,8 @@
 
 ### Поиск по всей истории
 
-**`GET /<value:str>/`**  
-**`GET /<value:str>/?offset=<offset:int>&limit=<limit:int>`**
+**`GET /<name:str>/`**  
+**`GET /<name:str>/?offset=<offset:int>&limit=<limit:int>`**
 
 Request:
 
@@ -22,8 +22,8 @@ Response:
         {
             "id": <id:int>, // id объекта
             "type": "<type:str>", // тип объекта
-            "value": "<value:str>", // значение объекта
-            "data": [
+            "name": "<value:str>", // название объекта
+            "data": [ //
                 {"<key:str>": "<value:str>"},
                 {"<key:str>": "<value:str>"},
                 {
@@ -55,16 +55,16 @@ Response:
 
 ### Получение истории объекта по значению
 
-**`GET /get/<type:str>/<value:str>/`**  
-**`GET /get/<type:str>/<value:str>/<datefrom:datetime>/`**  
-**`GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>`**
+**`GET /get/<type:str>/<name:str>/`**  
+**`GET /get/<type:str>/<name:str>/<datefrom:datetime>/`**  
+**`GET /get/<type:str>/<name:str>/<datefrom:datetime>/<dateto:datetime>/`**
 
 Request:
 
     <type:str> - тип объекта
-    <value:str> - значение объекта
-    <datefrom:datetime> - дата от
-    <dateto:datetime> - дата до
+    <name:str> - название объекта
+    <datefrom:datetime> - дата начала среза истории
+    <dateto:datetime> - дата окончания среза
     <offset:int> - кол-во строк перед началом вывода, default: 0
     <limit:int> - максимальное кол-во возвращаемых записей  default: 0
 
@@ -77,14 +77,14 @@ Response:
         {
             "id": <id:int>, //id объекта
             "type": "<type:str>", // тип объекта
-            "value": "<value:str>",
+            "name": "<name:str>", // значение объекта
             "data": [
-                {"<key:str>": "<value:str>"},
-                {"<key:str>": "<value:str>"},
+                {"<key:str>": "<value:str>", ...},
+                {"<key:str>": "<value:object>", ...},
                 {
                     "<key:array>": [
-                        {"<key:str>": "<value:str>"},
-                        {"<key:str>": "<value:str>"},
+                        {"<key:str>": "<value:str>", ...},
+                        {"<key:str>": "<value:object>", ...},
                         ...
                     ]
                 },
@@ -95,7 +95,7 @@ Response:
         {
             "id": <id:int>,
             "type": "<type:str>",
-            "value": "<value:str>",
+            "name": "<name:str>",
             "data": [
                 {"<key:str>": "<value:str>"},
                 {"<key:str>": "<value:str>"},
@@ -110,23 +110,62 @@ Response:
 
 ### Добавление объекта в историю
 
-**`POST /add/<type:str>/<value:str>`**
+**`POST /add/`**
 
 Request:
 
 ```js
 [
-    {"<key:str>": "<value:str>"}, // название объекта
-    {"<key:str>": "<value:str>"}, // значение объекта
+    {
+        "type": "<type:str>", // тип объекта
+        "name": "<name:str>", // название объекта
+        "data": [
+            {"<key:str>": "<value:str>", ...},
+            {
+                "<key:array>": [ // массив объектов
+                    {"<key:str>": "<value:str>", ..},
+                    ...
+                    ]
+            },
+        ]
+    }
+    ...
+]
+```
+
+    <type:str> - тип объекта
+    <name:str> - название объекта
+    <data:array> - массив объектов для добавления
+
+
+Response:
+
+```js
+{
+    "status": <status:int> // статус 0 или 1
+}
+```
+
+**`POST /add/<type:str>/<name:str>/`**
+
+    <type:str> - тип объекта
+    <name:str> - название объекта
+
+Request:
+
+```js
+[
+    {"<key:str>": "<value:str>", ...},
     {
         "<key:array>": [ // массив объектов
-            {"<key:str>": "<value:str>"},
+            {"<key:str>": "<value:str>", ..},
             ...
          ]
     },
     ...
 ]
 ```
+
 
 Response:
 
@@ -158,7 +197,7 @@ Request:
 ```
 
     <type:str> - тип объекта
-    <value:str> - название объекта
+    <name:str> - название объекта
 
 Response:
 
@@ -172,6 +211,16 @@ Response:
     },
     ...
 ]
+```
+
+**`POST /monitoring/add/<type:str>/<value:str>/`**
+
+Response:
+
+```js
+{
+    "status": <status:int>,
+}
 ```
 
 ### Удалить объект с мониторинга
@@ -192,3 +241,36 @@ Response:
     ...
 ]
 ```
+
+**`POST /monitoring/delete/`**
+
+Request:
+
+```js
+[
+    {
+        "type": "<type:str>", // тип объекта
+        "value": "<value:str>" // название объекта
+    },
+    {
+        "type": "<type:str>",
+        "value": "<value:str>"
+    },
+    ...
+]
+
+```
+Response:
+
+```js
+[
+    {
+        "status": <status:int>,
+    },
+    {
+        "status": <status:int>,
+    },
+    ...
+]
+```
+
