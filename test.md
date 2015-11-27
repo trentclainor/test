@@ -284,7 +284,7 @@ Response:
 
 ### Статус объекта мониторинга
 
-**`POST /monitoring/atatus/`**
+**`POST /monitoring/status/`**
 
 Request:
 
@@ -322,13 +322,7 @@ Response:
 Response:
 
 ```js
-[
-    {
-        "status": <status:int>,
-    },
-    {
-        "status": <status:int>,
-    },
-    ...
-]
+{
+    "status": <status:int>,
+}
 ```
