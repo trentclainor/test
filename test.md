@@ -213,7 +213,10 @@ Response:
 ]
 ```
 
-**`POST /monitoring/add/<type:str>/<value:str>/`**
+**`POST /monitoring/add/<type:str>/<name:str>/`**
+
+    <type:str> - тип объекта
+    <name:str> - название объекта
 
 Response:
 
@@ -225,8 +228,26 @@ Response:
 
 ### Удалить объект с мониторинга
 
-**`POST /monitoring/delete/<type:str>/<value:str>/`**
+**`POST /monitoring/delete/`**
 
+Request:
+
+```js
+[
+    {
+        "type": "<type:str>", // тип объекта
+        "name": "<name:str>" // название объекта
+    },
+    {
+        "type": "<type:str>",
+        "name": "<name:str>"
+    },
+    ...
+]
+```
+
+    <type:str> - тип объекта
+    <name:str> - название объекта
 
 Response:
 
@@ -242,7 +263,28 @@ Response:
 ]
 ```
 
-**`POST /monitoring/delete/`**
+**`POST /monitoring/delete/<type:str>/<name:str>/`**
+
+    <type:str> - тип объекта
+    <name:str> - название объекта
+
+Response:
+
+```js
+[
+    {
+        "status": <status:int>,
+    },
+    {
+        "status": <status:int>,
+    },
+    ...
+]
+```
+
+### Статус объекта мониторинга
+
+**`POST /monitoring/atatus/`**
 
 Request:
 
@@ -274,3 +316,19 @@ Response:
 ]
 ```
 
+**`POST /monitoring/status/<type:str>/<value:str>/`**
+
+
+Response:
+
+```js
+[
+    {
+        "status": <status:int>,
+    },
+    {
+        "status": <status:int>,
+    },
+    ...
+]
+```
