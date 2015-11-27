@@ -4,7 +4,7 @@
 
 ### Поиск по всей истории
 
-GET /<value:str>/
+GET /<value:str>/  
 GET /<value:str>/?offset=<offset:int>&limit=<limit:int>
 
     <value:str> - значение объекта
@@ -12,7 +12,7 @@ GET /<value:str>/?offset=<offset:int>&limit=<limit:int>
     <limit:int> - максимальное  кол-во возвращаемых записей
 
 Response:
-```json
+```js
 {
     "status": <status:bool>, // статус 0 или 1 тип int
     "total": <total:int>, // количество объектов
@@ -53,8 +53,8 @@ Response:
 
 ### Получение истории объекта по значению
 
-GET /get/<type:str>/<value:str>/
-GET /get/<type:str>/<value:str>/<datefrom:datetime>/
+GET /get/<type:str>/<value:str>/  
+GET /get/<type:str>/<value:str>/<datefrom:datetime>/  
 GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>
 
     <type:str> - тип объекта
@@ -65,7 +65,7 @@ GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>
     ?<limit:int> - максимальное кол-во возвращаемых записей  default: 0
 
 Response:
-```json
+```js
 {
     "status": <status:bool>, // статус 0 | 1 тип int
     "total": <total:int>, // количество объектов
@@ -110,7 +110,7 @@ POST /add/
 
 Request:
 
-```json
+```js
 [
     {"<key:str>": "<value:str>"},
     {"<key:str>": "<value:str>"},
@@ -145,7 +145,7 @@ POST /monitoring/add/
 
 Request:
 
-```json
+```js
 [
     {
         "type": "<type:str>",
@@ -167,7 +167,7 @@ Request:
 
 Response:
 
-```json
+```js
 [
     {
         "status": <status:int>,
