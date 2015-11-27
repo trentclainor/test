@@ -133,7 +133,7 @@ Request:
 
 Response:
 
-```json
+```js
 {
     "status": <status:int> // статус 0 или 1
 }
@@ -163,6 +163,23 @@ Request:
     <type:str> - тип объекта
     <value:str> - название объекта
 
+Response:
+
+```js
+[
+    {
+        "status": <status:int>,
+    },
+    {
+        "status": <status:int>,
+    },
+    ...
+]
+```
+
+### Удалить объект с мониторинга
+
+POST /monitoring/delete/<type:str>/<value:str>/
 
 
 Response:
@@ -178,5 +195,3 @@ Response:
     ...
 ]
 ```
-
-POST /monitoring/delete/<type:str>/<value:str>/
