@@ -5,7 +5,7 @@
 ### Поиск по всей истории
 
 GET /<value:str>/  
-GET /<value:str>/?offset=<offset:int>&limit=<limit:int>
+GET /<value:str>/?offset=&lst;offset:int&gt;&limit=&lt;limit:int&gt;
 
     <value:str> - значение объекта
     <offset:int> - с какой записи вернуть значения
