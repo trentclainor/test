@@ -8,6 +8,7 @@
 **`GET /<value:str>/?offset=<offset:int>&limit=<limit:int>`**
 
 Request:
+
     <value:str> - значение объекта
     <offset:int> - с какой записи вернуть значения
     <limit:int> - максимальное  кол-во возвращаемых записей
@@ -59,12 +60,13 @@ Response:
 **`GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>`**
 
 Request:
+
     <type:str> - тип объекта
     <value:str> - значение объекта
     <datefrom:datetime> - дата от
     <dateto:datetime> - дата до
-    ?<offset:int> - кол-во строк перед началом вывода, default: 0
-    ?<limit:int> - максимальное кол-во возвращаемых записей  default: 0
+    <offset:int> - кол-во строк перед началом вывода, default: 0
+    <limit:int> - максимальное кол-во возвращаемых записей  default: 0
 
 Response:
 ```js
