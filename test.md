@@ -4,10 +4,8 @@
 
 ### Поиск по всей истории
 
-**`
-GET /<value:str>/  
-GET /<value:str>/?offset=<offset:int>&limit=<limit:int>
-`**
+**`GET /<value:str>/`**
+**`GET /<value:str>/?offset=<offset:int>&limit=<limit:int>`**
 
     <value:str> - значение объекта
     <offset:int> - с какой записи вернуть значения
@@ -55,9 +53,9 @@ Response:
 
 ### Получение истории объекта по значению
 
-**`GET /get/<type:str>/<value:str>/  
-GET /get/<type:str>/<value:str>/<datefrom:datetime>/  
-GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>
+**`GET /get/<type:str>/<value:str>/  `**
+**`GET /get/<type:str>/<value:str>/<datefrom:datetime>/  `**
+**`GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>`**
 
     <type:str> - тип объекта
     <value:str> - значение объекта
@@ -108,7 +106,7 @@ Response:
 
 ### Добавление объекта в историю
 
-POST /add/
+**`POST /add/`**
 
 Request:
 
@@ -143,7 +141,7 @@ Response:
 
 ### Поставить объект на мониторинг
 
-POST /monitoring/add/
+**`POST /monitoring/add/`**
 
 Request:
 
@@ -181,7 +179,7 @@ Response:
 
 ### Удалить объект с мониторинга
 
-POST /monitoring/delete/<type:str>/<value:str>/
+**`POST /monitoring/delete/<type:str>/<value:str>/`**
 
 
 Response:
