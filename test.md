@@ -56,6 +56,7 @@ Response:
 ### Получение истории объекта по значению
 
 **`GET /get/<type:str>/<name:str>/`**  
+**`GET /get/<type:str>/<name:str>/?out[]=key1&out[]=key2&offset=<offset:int>&limit=<limit:int>`**  
 **`GET /get/<type:str>/<name:str>/<datefrom:datetime>/`**  
 **`GET /get/<type:str>/<name:str>/<datefrom:datetime>/<dateto:datetime>/`**
 
@@ -65,6 +66,7 @@ Request:
     <name:str> - название объекта
     <datefrom:datetime> - дата начала среза истории
     <dateto:datetime> - дата окончания среза
+    <out:array> - массив параметров, которые надо получить, исключая другие
     <offset:int> - кол-во строк перед началом вывода, default: 0
     <limit:int> - максимальное кол-во возвращаемых записей  default: 0
 
