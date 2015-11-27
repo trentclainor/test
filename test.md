@@ -294,11 +294,11 @@ Request:
 [
     {
         "type": "<type:str>", // тип объекта
-        "value": "<value:str>" // название объекта
+        "name": "<name:str>" // название объекта
     },
     {
         "type": "<type:str>",
-        "value": "<value:str>"
+        "name": "<name:str>"
     },
     ...
 ]
