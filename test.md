@@ -14,7 +14,7 @@ GET /<value:str>/?offset=<offset:int>&limit=<limit:int>
 Response:
 ```json
 {
-    "status": <status:bool>, // статус 0 | 1 тип int
+    "status": <status:bool>, // статус 0 или 1 тип int
     "total": <total:int>, // количество объектов
     "result": [ // список объектов
         {
@@ -135,7 +135,7 @@ Response:
 
 ```json
 {
-    "status": <status:int>
+    "status": <status:int> // статус 0 или 1
 }
 ```
 
