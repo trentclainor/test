@@ -4,8 +4,8 @@
 
 ### Поиск по всей истории
 
-`GET /&lt;value:str&gt;/`  
-`GET /&lt;value:str&gt;/?offset=&lt;offset:int&gt;&limit=&lt;limit:int&gt;`
+`GET /<value:str>/`  
+`GET /<value:str>/?offset=<offset:int>&limit=<limit:int>`
 
     <value:str> - значение объекта
     <offset:int> - с какой записи вернуть значения
