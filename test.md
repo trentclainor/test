@@ -7,6 +7,7 @@
 **`GET /<value:str>/`**  
 **`GET /<value:str>/?offset=<offset:int>&limit=<limit:int>`**
 
+Request:
     <value:str> - значение объекта
     <offset:int> - с какой записи вернуть значения
     <limit:int> - максимальное  кол-во возвращаемых записей
@@ -57,6 +58,7 @@ Response:
 **`GET /get/<type:str>/<value:str>/<datefrom:datetime>/`**  
 **`GET /get/<type:str>/<value:str>/<datefrom:datetime>/<dateto:datetime>`**
 
+Request:
     <type:str> - тип объекта
     <value:str> - значение объекта
     <datefrom:datetime> - дата от
@@ -106,30 +108,23 @@ Response:
 
 ### Добавление объекта в историю
 
-**`POST /add/`**
+**`POST /add/<type:str>/<value:str>`**
 
 Request:
 
 ```js
 [
-    {"<key:str>": "<value:str>"},
-    {"<key:str>": "<value:str>"},
+    {"<key:str>": "<value:str>"}, // название объекта
+    {"<key:str>": "<value:str>"}, // значение объекта
     {
-        "<key:array>": [
+        "<key:array>": [ // массив объектов
             {"<key:str>": "<value:str>"},
             ...
          ]
     },
     ...
 ]
-
 ```
-
-    <type:str> - тип объекта
-    <value:str> - название объекта
-    <key:str> - название объекта
-    <key:array> - массив объектов
-
 
 Response:
 
