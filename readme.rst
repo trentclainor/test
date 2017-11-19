@@ -1,7 +1,7 @@
 Checker
 =======
 
-Парсинг лога пользователей с FTP и сохранение статистики
+Проверка вложености скобок
 
 Установка
 ---------
@@ -15,8 +15,6 @@ Checker
     $ source .env/bin/activate
     $ pip install -r requirements.txt
 
-Изменить FTP\_URI в config.py на актуальный
-
 Запуск
 ------
 
@@ -26,11 +24,6 @@ Checker
 
     $ python checker.py
 
-Показать статистику
-
-::
-
-    $ python checker.py --stats
 
 Тестирование
 ------------
