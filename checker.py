@@ -24,10 +24,6 @@ def is_balanced(text):
 
 
 if __name__ == '__main__':
-    try:
-        text = input("Please input something: ")
-        print("Input is {0}".format(
-            "valid" if is_balanced(text) else "invalid"))
-    except KeyboardInterrupt:
-        print("Import data interrupted", file=sys.stderr)
+    text = input("Please input something: ")
+    print("Input is {0}".format("valid" if is_balanced(text) else "invalid"))
  
