@@ -31,4 +31,5 @@ Checker
 ::
 
     $ nosetest
+    $ nosetests --with-coverage
 
