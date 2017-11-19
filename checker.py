@@ -4,10 +4,8 @@
 import sys
 
 def is_balanced(text):
-    """checking bracrers is correct"""
-    brackets = ""
+    """checking brackets is correct"""
     opening, closing = "([{", ")]}"
-    # keep track of opening brackets types
     stack = []
     for character in text:
         if character in opening:
@@ -27,7 +25,9 @@ def is_balanced(text):
 
 if __name__ == '__main__':
     try:
-        print(is_balanced(text))
+        text = input("Please input something: ")
+        print("Input is {0}".format(
+            "valid" if is_balanced(text) else "invalid"))
     except KeyboardInterrupt:
         print("Import data interrupted", file=sys.stderr)
  

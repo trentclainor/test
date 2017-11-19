@@ -8,7 +8,7 @@ class Test(unittest.TestCase):
     """ Testing brackets"""
 
     def setUp(self):
-        self.valid_text = ["[{}({})]", "(5+4)/[3+2]*{1*5}", "()[]{{()}}"]
+        self.valid_text = ["[{}({})]", "(5+4)/[3+2]*{1*5}", "()[]{{()}}", "", "str"]
         self.invalid_text = ["[[{}({})]", "[[", "}}", "{{(()}}", "}}", "(}"]
 
     def test_valid_brackets(self):
